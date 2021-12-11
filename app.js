@@ -4,14 +4,19 @@ const path = require('path')
 const template = require('art-template')
 const bodyParser = require('body-parser')
 const session = require('express-session')
+const MongoStore = require('connect-mongo')
+const morgan = require('morgan')
+const config = require('config')
 
 // 导入路由
 const home = require('./routers/home')
 const admin = require('./routers/admin')
 
+//连接数据库
+require('./models/connect')
+
 // 1. 开启服务器
 const app = express()
-
 
 // 2. 开放静态文件
 app.use(express.static(path.join(__dirname, 'public')))
@@ -32,8 +37,22 @@ app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    // cookie: { secure: true }
+    cookie: {
+        maxAge: 24 * 60 * 60 * 1000
+    },
+    store: MongoStore.create({
+        mongoUrl: `mongodb://${config.get('db.host')}:${config.get('db.port')}/${config.get('db.name')}`
+    })
 }))
+
+// 11. 设置不同的环境变量
+if (process.env.NODE_ENV === 'development') {
+    console.log('当前是开发环境')
+    // 打印请求
+    app.use(morgan('dev'))
+} else {
+    console.log('当前是生产环境')
+}
 
 // 6. 配置路由请求路径
 app.use('/home', home)
