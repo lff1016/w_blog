@@ -20,6 +20,11 @@ admin.post('/user-edit', require('./admin/user-edit-post'))
 
 admin.post('/user-add', require('./admin/user-add-fn'))
 
+// 注册普通用户
+admin.get('/register', require('./admin/register'))
+
+admin.post('/register', require('./admin/register-post'))
+
 // 退出登录
 admin.get('/logout', (req, res) => {
     // 将 session 清除
@@ -41,6 +46,9 @@ admin.get('/article-edit', require('./admin/article-edit'))
 
 // 添加文章
 admin.post('/article-add', require('./admin/article-add'))
+
+// 修改文章
+admin.post('/article-edit')
 
 
 

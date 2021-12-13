@@ -107,6 +107,10 @@
 .comment-list-item {
     border-bottom: 3px dotted  #2aabd2;
 }
+.comment-author-info span {
+    margin-right: 10px;
+    font-size: 12px;
+}
 
 /* 评论结束 */
 

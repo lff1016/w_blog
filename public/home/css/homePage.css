@@ -5,6 +5,30 @@
     transition: all 0.5s;
 }
 
+/* 页脚的小图标 */
+#scroll-down {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+}
+
+.scroll-down-effects {
+    position: relative;
+    animation: scroll-down-effect 1.5s infinite;
+}
+.scroll-down-effects::before {
+    content: "\e601";
+    font-family: "iconfont";
+    font-size: 20px;
+    font-weight: 900;
+    color: #FFFFFF;
+    text-align: center;
+    text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
+    line-height: 1.5;
+}
+
 .content-item {
     display: flex;
     -moz-box-orient: horizontal;
@@ -26,11 +50,25 @@
 .left_radius {
     border-radius: 8px 0 0 8px;
 }
+.post_img_bg {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
 .content-info {
     display: inline-block;
     overflow: hidden;
     padding: 0 40px;
     width: 55%;
+}
+.content-info div {
+    margin-bottom: 8px;
+}
+.content-info a {
+    color: #0f0f0f;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 .article {
     margin-top: 0.3rem;

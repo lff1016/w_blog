@@ -28,6 +28,16 @@ const UserSchema = new mongoose.Schema({
         enum: [0, 1],
         //默认为 0 为启用，1 为禁用
         default: 0
+    },
+    // 头像
+    avatar: {
+        type: String,
+        default:  '/pubilc/img/avatar-default.png'
+    },
+    // 博客描述
+    bio: {
+        type: String,
+        default: ''
     }
 })
 
@@ -42,7 +52,9 @@ const validUser = user => {
         email: Joi.string().email({minDomainSegments: 2, tlds: {allow: ['com', 'net']}}).required().error(new Error('邮箱不符合要求')),
         // valid() 中直接传入允许输入的值，而不是数组
         role: Joi.string().valid('normal', 'admin').required().error(new Error('角色非法')),
-        state: Joi.number().valid(0, 1).required().error(new Error('状态非法'))
+        state: Joi.number().valid(0, 1).required().error(new Error('状态非法')),
+        avatar: Joi.string().error(new Error('头像上传错误')),
+        bio: Joi.string().max(100).error(new Error('博客描述错误'))
     })
     return schema.validateAsync(user)
 }

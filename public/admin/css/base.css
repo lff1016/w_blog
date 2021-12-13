@@ -352,3 +352,20 @@ h4 {
 .modal-content {
 	display: block;
 }
+
+/*底部区域开始*/
+#footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background-attachment: local;
+	background-position: bottom;
+}
+.footer-wrap {
+	position: relative;
+	padding: 2rem 1rem;
+	color: #eee;
+	text-align: center;
+	background-color: #1873a2;
+}
+/*底部区域结束*/

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{block 'title'}}{{/block}}</title>
+    <link rel="stylesheet" href="/home/css/base.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_2998259_hftadrstxov.css">
+    <link rel="stylesheet" href="/home/iconfont/iconfont.css">
+    {{block 'link'}}{{/block}}
+    <!--    <link rel="stylesheet" href="lib/lib/bootstrap/css/bootstrap.css">-->
+</head>
+<body>
+{{block 'body'}}{{/block}}
+
+<script src="/home/js/utils.js"></script>
+<script src="/home/js/main.js"></script>
+<script type="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script src="/home/js/clock.js"></script>
+{{block 'script'}}{{/block}}
+</body>
+</html>

@@ -9,6 +9,7 @@
 </head>
 
 <body>
+<div class="body-wrap">
     <div class="login-body">
         <div class="login-container">
             <h4 class="title">温温的blog</h4>
@@ -26,8 +27,12 @@
                 </form>
             </div>
             <div class="tips"></div>
+            <div>没有账户？<a href="/admin/register">点击创建</a></div>
         </div>
     </div>
+    {{include './common/footer.art'}}
+</div>
+
     <script src="/admin/lib/jquery/dist/jquery.min.js"></script>
     <script src="/admin/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="/admin/js/common.js"></script>

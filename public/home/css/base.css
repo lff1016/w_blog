@@ -8,8 +8,9 @@ body, ul {
 }
 
 body {
-	font-size: 12px;
+	font-size: 14px;
 	font-family: 'Microsoft YaHei', 'Arial';
+	line-height: 2;
 }
 
 ul {
@@ -32,6 +33,9 @@ a:hover {
 
 h4 {
 	margin: 0;
+}
+@font-face {
+	src: url('https://cdn.jsdelivr.net/npm/akilar-candyassets/fonts/UnidreamLED.ttf');
 }
 @keyframes header-effect {
 	0% {
@@ -96,6 +100,7 @@ h4 {
 		margin-top: 0;
 	}
 }
+
 /*头部样式开始*/
 #body-wrap {
 	position: relative;
@@ -175,29 +180,6 @@ h4 {
 .menus-item span:hover::after {
 	width: 100%;
 }
-/* 页脚的小图标 */
-#scroll-down {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	cursor: pointer;
-	text-align: center;
-}
-
-.scroll-down-effects {
-	position: relative;
-	animation: scroll-down-effect 1.5s infinite;
-}
-.scroll-down-effects::before {
-	content: "\e601";
-	font-family: "iconfont";
-	font-size: 20px;
-	font-weight: 900;
-	color: #FFFFFF;
-	text-align: center;
-	text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
-	line-height: 1.5;
-}
 /*头部样式结束*/
 
 /*主题区域开始*/
@@ -271,6 +253,30 @@ h4 {
 .icon-laba::before {
 	color: red;
 }
+
+/*时钟样式开始*/
+#container {
+	padding: 25px 20px;
+	border-radius: 8px;
+	font-family: UnidreamLED,serif;
+	transition: box-shadow 0.3s;
+}
+
+#clock {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.clock-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.clock_time {
+	font-size: 35px;
+	margin: 0 auto;
+}
+/*时钟样式结束*/
 /* 侧边栏区域结束 */
 /*主题区域结束*/
 

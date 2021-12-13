@@ -7,6 +7,7 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')
 const morgan = require('morgan')
 const config = require('config')
+const dateFormat = require('dateformat')
 
 // 导入路由
 const home = require('./routers/home')
@@ -45,6 +46,9 @@ app.use(session({
     })
 }))
 
+// 全局配置 dateFormat 修改时间格式
+template.defaults.imports.dateFormat = dateFormat
+
 // 11. 设置不同的环境变量
 if (process.env.NODE_ENV === 'development') {
     console.log('当前是开发环境')
@@ -52,7 +56,13 @@ if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'))
 } else {
     console.log('当前是生产环境')
+    app.use(morgan('dev'))
 }
+
+// 8.登录拦截
+// 只有用户登录才能访问用户列表页面
+// 第一个参数：匹配路由以 /admin 开头的
+app.use('/admin', require('./middleware/login_guard'))
 
 // 6. 配置路由请求路径
 app.use('/home', home)

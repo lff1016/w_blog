@@ -1,0 +1,28 @@
+<div id="aside" class="aside">
+    <!-- 个人信息 -->
+    <div class="card card-info">
+        <div class="is-center">
+            <div class="avatar-img"><img src="{{admin ? admin.avatar : './public/admin/img/avatar-default.png'}} " alt=""></div>
+            <div class="author-info_name">{{admin.username}}</div>
+            <div class="author-info_description">{{admin.bio}}</div>
+        </div>
+        <div class="card-info_data">
+            <div class="card-info_data-item is-center">
+                <div class="headline">文章</div>
+                <div class="headline-number">{{adminArticle.total}}</div>
+            </div>
+            <div class="card-info_data-item is-center">
+                <div class="headline">分类</div>
+                <div class="headline-number">{{adminArticle.categories.length}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="card card-announcement">
+        <div class="item-headline">
+            <i class="iconfont icon-laba">公告</i>
+        </div>
+        <div class="announcement_content">我的博客诞生了！</div>
+    </div>
+<!--时钟挂件-->
+    <div id="container" class="container card"></div>
+</div>

@@ -1,0 +1,69 @@
+{{extend './common/layout.art'}}
+{{block 'title'}}温温blog{{/block}}
+{{block 'link'}}
+<link rel="stylesheet" href="/home/css/homePage.css">
+{{/block}}
+
+{{block 'body'}}
+<div id="body-wrap" class="page">
+    <!--头部区域开始-->
+    <div id="header" class="full-page">
+        {{include './common/header.art'}}
+        <div id="scroll-down">
+            <i class="scroll-down-effects"></i>
+        </div>
+    </div>
+
+    <!--头部区域结束-->
+    <!-- 主体部分开始 -->
+    <main id="main" class="layout">
+        <div id="content" class="content">
+            {{each adminArticle.records}}
+            <div class="content-item">
+                <div class="cover left_radius">
+                    <a href="/home/article?id={{$value._id}}" title="{{$value.title}}"></a>
+                    <img class="post_img_bg" src="{{$value.cover}}" alt="{{$value.title}}">
+                </div>
+                <div class="content-info">
+                    <div class="article-title">
+                        <a href="/home/article?id={{$value._id}}" title="{{$value.title}}">{{$value.title}}</a>
+                    </div>
+                    <div class="article-meta">
+                        <i class="iconfont icon-rili"></i>
+                        <span class="publishDate">发表于{{dateFormat($value.publishDate, 'yyyy-mm-dd')}}</span>
+                        <span class="category">
+                            <i class="iconfont icon-fenlei"></i>
+                            {{$value.category}}
+                        </span>
+                    </div>
+                    <div class="article">
+                        <!-- 替换 Html 标签，并且截取字符串 -->
+                        {{@$value.content.replace(/<[^>]+>/g, '').substr(0, 100) + '...'}}
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            <nav id="pagination">
+                <div class="pagination">
+                    {{if adminArticle.page > 1}}
+                    <a href="/home?page={{adminArticle.page-1}}" class="page-number"><</a>
+                    {{/if}}
+                    {{each adminArticle.display}}
+                    <a href="/home?page={{$value}}" class="page-number {{$value === adminArticle.page ? 'active' : ''}}" >1</a>
+                    {{/each}}
+                    {{if adminArticle.page < adminArticle.pages}}
+                    <a href="/home?page={{adminArticle.page-0+1}}" class="page-number">></a>
+                    {{/if}}
+                </div>
+            </nav>
+        </div>
+        <!-- 侧边栏开始 -->
+        {{include './common/aside.art'}}
+        <!-- 侧边栏结束 -->
+    </main>
+    <!-- 主体部分结束 -->
+    <!--底部区域开始-->
+    {{include './common/footer.art'}}
+    <!--底部区域结束-->
+</div>
+{{/block}}
