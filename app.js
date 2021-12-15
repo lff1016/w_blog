@@ -70,6 +70,6 @@ app.use('/admin', admin)
 
 
 // 7. 监听端口
-app.listen('3000', () => {
+app.listen('3030', () => {
     console.log('服务器已经开启')
 })
