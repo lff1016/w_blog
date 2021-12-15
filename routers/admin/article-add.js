@@ -21,7 +21,8 @@ module.exports = (req, res) => {
             author: fields.author,
             publishData: fields.publishData,
             cover: files.cover.filepath.split('public')[1],
-            content: fields.content
+            content: fields.content,
+            category: fields.category
         })
         // 重定向到文章列表页面
         res.redirect('/admin/article')

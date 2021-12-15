@@ -67,6 +67,12 @@ app.use('/admin', require('./middleware/login_guard'))
 // 6. 配置路由请求路径
 app.use('/home', home)
 app.use('/admin', admin)
+// 错误路径404处理
+app.get('*', (req, res) => {
+    res.render('error.art', {
+        status: 404
+    })
+})
 
 
 // 7. 监听端口

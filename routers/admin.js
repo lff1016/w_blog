@@ -32,7 +32,7 @@ admin.get('/logout', (req, res) => {
     // 将用户信息挂载到 app.locals 中，可以全局访问到用户信息
     req.app.locals.userInfo = null
     // 跳转到登录界面
-    res.redirect('./admin/login')
+    res.redirect('/admin/login')
 })
 
 // 删除用户
