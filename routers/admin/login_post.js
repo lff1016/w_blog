@@ -1,5 +1,5 @@
 const { User } = require("../../models/user");
-const md5 = require("md5");
+const md5 = require("blueimp-md5");
 
 const login_post = async (req, res) => {
     // 获取表单内容
@@ -10,8 +10,8 @@ const login_post = async (req, res) => {
     }
     // 判断用户之前是否存在
     let user = await User.findOne({ email: email})
-    let isValid = md5(md5(password)) === user.password
     if (user) {
+        let isValid = md5(md5(password)) === user.password
         //进行密码比对
         if (isValid) {
             // 如果用户存在登录成功
@@ -32,7 +32,7 @@ const login_post = async (req, res) => {
             return res.status(400).render('./admin/error.art', {msg: '邮件或密码错误'})
         }
     } else {
-        return res.status(400).render('./admin/error.art', {msg: '邮件或密码错误'})
+        return res.status(400).render('./admin/error.art', {msg: '用户不存在'})
     }
 }
 

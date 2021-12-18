@@ -37,7 +37,8 @@ const UserSchema = new mongoose.Schema({
     // 博客描述
     bio: {
         type: String,
-        default: ''
+        default: '',
+        maxlength: 100
     }
 })
 
@@ -54,7 +55,7 @@ const validUser = user => {
         role: Joi.string().valid('normal', 'admin').required().error(new Error('角色非法')),
         state: Joi.number().valid(0, 1).required().error(new Error('状态非法')),
         avatar: Joi.string().error(new Error('头像上传错误')),
-        bio: Joi.string().max(100).error(new Error('博客描述错误'))
+        bio: Joi.string().error(new Error('描述字数不能超过100字')),
     })
     return schema.validateAsync(user)
 }

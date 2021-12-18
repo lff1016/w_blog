@@ -2,7 +2,7 @@
 const { User, validUser } = require('../../models/user')
 const formidable = require('formidable')
 const path = require('path')
-const md5 = require('md5')
+const md5 = require('blueimp-md5')
 module.exports = (req, res, next) => {
     // 1. 创建文件表单解析对象，并且保留文件的后缀名
     const form = formidable({keepExtensions: true})

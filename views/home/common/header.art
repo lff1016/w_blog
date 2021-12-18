@@ -32,10 +32,17 @@
         </div>
         {{if userInfo}}
         <div class="menus-item">
-            <a href="/admin/login" class="site-page" alt="{{userInfo.email}}">
+            <a href="javascript:void(0)" class="site-page">
                 <i class="iconfont icon-xiai"></i>
                 <span>{{userInfo.username}}</span>
             </a>
+            {{if userInfo.role === 'admin'}}
+            <ul class="menus-item-child">
+                <li>
+                    <a class="site-page child" href="/admin/user">🚀后台管理</a>
+                </li>
+            </ul>
+            {{/if}}
         </div>
         {{else}}
         <div class="menus-item">

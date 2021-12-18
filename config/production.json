@@ -1,7 +1,7 @@
 {
   "db": {
-    "user": "lf",
-    "pwd": "123",
+    "user": "wblog",
+    "pwd": "960207",
     "host": "162.14.76.95",
     "port": "27017",
     "name": "w_blog"

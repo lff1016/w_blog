@@ -1,6 +1,6 @@
 // 这块就改成新增用户
 // 验证用户信息提交 post 请求
-const md5 = require('md5')
+const md5 = require('blueimp-md5')
 const formidable = require('formidable')
 const path = require('path')
 const { User, validUser } = require('../../models/user')

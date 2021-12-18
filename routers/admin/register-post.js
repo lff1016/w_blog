@@ -1,5 +1,5 @@
 const { User, validUser } = require('../../models/user')
-const md5 = require("md5");
+const md5 = require("blueimp-md5");
 
 module.exports = async (req, res, next) => {
     let body = req.body
