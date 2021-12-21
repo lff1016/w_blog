@@ -48,8 +48,10 @@ admin.get('/article-edit', require('./admin/article-edit'))
 admin.post('/article-add', require('./admin/article-add'))
 
 // 修改文章
-admin.post('/article-edit')
+admin.post('/article-edit',require('./admin/article-edit-post'))
 
+// 删除文章
+admin.get('/article-delete',require('./admin/article-delete'))
 
 
 // 导出路由

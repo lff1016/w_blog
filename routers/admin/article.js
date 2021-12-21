@@ -1,3 +1,4 @@
+// 获取文章列表
 const { Article } = require('../../models/article')
 const pagination = require('mongoose-sex-page')
 
@@ -12,7 +13,7 @@ module.exports = async (req, res) => {
     let articles = await pagination(Article).find().page(page).size(4).display(3).populate('author').exec()
     let str = JSON.stringify(articles)
     let articlesJson = JSON.parse(str)
-    // res.send(articles)
+    // res.send(articlesJson)
     res.render('admin/article.art', {
         articlesJson
     })

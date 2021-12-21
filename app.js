@@ -62,7 +62,7 @@ if (process.env.NODE_ENV === 'development') {
 // 8.登录拦截
 // 只有用户登录才能访问用户列表页面
 // 第一个参数：匹配路由以 /admin 开头的
-// app.use('/admin', require('./middleware/login_guard'))
+app.use('/admin', require('./middleware/login_guard'))
 
 // 6. 配置路由请求路径
 app.use('/home', home)

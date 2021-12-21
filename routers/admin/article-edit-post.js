@@ -27,9 +27,9 @@ module.exports = (req, res) => {
             cover: files.cover.filepath.split('public')[1]
         })
 
-        res.render('admin/article-edit.art', {
-            article
-        })
+        // res.render('admin/article-edit.art', {
+        //     article
+        // })
         res.redirect('/admin/article')
     })
 }
